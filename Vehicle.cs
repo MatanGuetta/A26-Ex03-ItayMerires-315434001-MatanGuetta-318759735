@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Utils;
+
+namespace GarageManagementSystem
+{
+    public abstract class Vehicle
+    {
+        private readonly string m_Model;
+        private readonly string m_LicenseNumber;
+        private float m_CurrentEnergyPrecentage;
+        private List<Wheel> m_Wheels;
+
+        private string m_OwnerName;
+        private string m_OwnerPhoneNumber;
+        private e_ServiceStatus m_ServiceStatus = e_ServiceStatus.InRepair;
+
+        public Vehicle(string i_Model, string i_LicenseNumber,
+            float i_CurrentEnergyPrecentage, List<Wheel> i_Wheels)
+        {
+            m_Model = i_Model;
+            m_LicenseNumber = i_LicenseNumber;
+            m_CurrentEnergyPrecentage = i_CurrentEnergyPrecentage;
+            m_Wheels = i_Wheels;
+        }
+
+        private class Wheel
+        {
+            String m_Manufacturer;
+            float m_CurrentAirPressure;
+            float m_MaxAirPressure;
+
+            public Wheel(String i_Manufacturer, float i_CurrentAirPressure, float i_MaxAirPressure)
+            {
+                m_Manufacturer = i_Manufacturer;
+                m_CurrentAirPressure = i_CurrentAirPressure;
+                m_MaxAirPressure = i_MaxAirPressure;
+            }
+
+            void Inflate(float i_AirPressureToAdd)
+            {
+
+            }
+        }
+
+
+    }
+}
