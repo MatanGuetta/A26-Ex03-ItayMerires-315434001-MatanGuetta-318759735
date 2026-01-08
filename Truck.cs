@@ -7,17 +7,10 @@ using Utils;
 
 namespace GarageManagementSystem
 {
-    public class Truck : Vehicle, IFuelable
+    public class Truck : Vehicle
     {
         private bool m_IsCarryingHazardousMaterials;
         private float m_CargoVolume;
-        public e_FuelType m_FuelType { get; set; }
-        public float m_CurrentFuelAmount { get; set; }
-        public float m_MaxFuelAmount { get; set; }
 
-        void IFuelable.Refuel(e_FuelType i_FuelType, float i_AmountToRefuel)
-        {
-            // Implementation for refueling the motorcycle
-        }
     }
 }

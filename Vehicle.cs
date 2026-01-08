@@ -27,25 +27,13 @@ namespace GarageManagementSystem
             m_Wheels = i_Wheels;
         }
 
-        private class Wheel
+        public void InflateAllWheelsToMax()
         {
-            String m_Manufacturer;
-            float m_CurrentAirPressure;
-            float m_MaxAirPressure;
-
-            public Wheel(String i_Manufacturer, float i_CurrentAirPressure, float i_MaxAirPressure)
+            foreach (Wheel wheel in m_Wheels)
             {
-                m_Manufacturer = i_Manufacturer;
-                m_CurrentAirPressure = i_CurrentAirPressure;
-                m_MaxAirPressure = i_MaxAirPressure;
-            }
-
-            void Inflate(float i_AirPressureToAdd)
-            {
-
+            wheel.Inflate(wheel.MaxAirPressure - wheel.CurrentAirPressure);
             }
         }
-
-
     }
+
 }
