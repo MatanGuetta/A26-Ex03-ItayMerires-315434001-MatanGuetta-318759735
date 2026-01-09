@@ -9,9 +9,9 @@ namespace GarageManagementSystem
 {
     public abstract class Vehicle
     {
-        private readonly string m_Model;
-        private readonly string m_LicenseNumber;
-        private float m_CurrentEnergyPrecentage;
+        private readonly string m_Model { get; }
+        private readonly string m_LicenseNumber { get; }
+        private float m_CurrentEnergyPrecentage { get; set; }
         private List<Wheel> m_Wheels;
 
         private string m_OwnerName;
@@ -33,6 +33,16 @@ namespace GarageManagementSystem
             {
             wheel.Inflate(wheel.MaxAirPressure - wheel.CurrentAirPressure);
             }
+        }
+
+        protected void UpdateEnergyPrecentage(float i_CurrentEnergyLevel, float i_MaxEnergyLevel)
+        {
+            m_CurrentEnergyPrecentage = i_CurrentEnergyLevel / i_MaxEnergyLevel * 100f;
+        }
+
+        public void ChangeRepairStatus(e_ServiceStatus i_NewStatus)
+        {
+            m_ServiceStatus = i_NewStatus;
         }
     }
 
