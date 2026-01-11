@@ -1,22 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Utils;
+﻿using Utils;
+using UTILS = Utils.Utils;
 
-namespace GarageManagementSystem
+namespace Ex03.GarageLogic
 {
-    public class FuelMotorcycle : Motorcycle, IFuelable
+    public class FuelMotorcycle : Motorcycle
     {
-        public e_FuelType m_FuelType { get; set; }
-        public float m_CurrentFuelAmount { get; set; }
-        public float m_MaxFuelAmount { get; set; }
-
-        void IFuelable.Refuel(e_FuelType i_FuelType, float i_AmountToRefuel)
+        private readonly FuelTank r_FuelTank;
+        public FuelMotorcycle(string i_LicenseNumber, string i_Model)
+            : base(i_LicenseNumber, i_Model, new FuelTank(UTILS.k_MotorcycleFuelType, UTILS.k_MotorcycleMaxFuelCapacity))
         {
-            // Implementation for refueling the motorcycle
+            r_FuelTank = (FuelTank)r_EnergySource;
         }
-
+        public void Refuel(float i_AmountToAdd, e_FuelType i_FuelType)
+        {
+            r_FuelTank.Refuel(i_AmountToAdd, i_FuelType);
+            UpdateEnergyPercentage(r_FuelTank.CurrentAmount, r_FuelTank.MaxAmount);
+        }
+        public float CurrentFuelAmount
+        {
+            get { return r_FuelTank.CurrentAmount; }
+            set
+            {
+                r_FuelTank.CurrentAmount = value;
+                UpdateEnergyPercentage(r_FuelTank.CurrentAmount, r_FuelTank.MaxAmount);
+            }
+        }
+        public e_FuelType FuelType
+        {
+            get { return r_FuelTank.FuelType; }
+        }
+        public float MaxFuelAmount
+        {
+            get { return r_FuelTank.MaxAmount; }
+        }
     }
 }
+

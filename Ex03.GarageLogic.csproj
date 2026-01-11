@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>A26_Ex03_ItayMerires_315434001_MatanGuetta_318759735</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>

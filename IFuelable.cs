@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Utils;
+﻿using Utils;
 
-namespace GarageManagementSystem
+namespace Ex03.GarageLogic
 {
-    interface IFuelable
+    public interface IFuelable
     {
-        e_FuelType m_FuelType { get; }
-        float m_CurrentFuelAmount { get; set; }
-        float m_MaxFuelAmount { get; }
-        void Refuel(e_FuelType i_FuelType, float i_AmountToRefuel);
+        void Refuel(float i_AmountToAdd, e_FuelType i_FuelType);
+        e_FuelType FuelType { get; }
+        float CurrentFuelAmount { get; }
+        float MaxFuelAmount {  get; }
     }
 }
-

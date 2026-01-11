@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GarageManagementSystem
+﻿namespace Ex03.GarageLogic
 {
-    interface IChargeable
+    public interface IChargeable
     {
-        float m_BatteryTimeRemaining { get; set; }
-        float m_MaxBatteryTime { get; }
-
-        void Charge(float i_HoursToCharge)
-        {
-
-        }
+        void Charge(float i_HoursToAdd);
+        float BatteryTimeRemaining { get; }
+        float MaxBatteryTime { get; }
     }
 }
