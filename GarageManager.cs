@@ -40,9 +40,9 @@ namespace Ex03.GarageLogic
                 throw new FileNotFoundException("The vehicle database file was not found.", i_FilePath);
             }
 
-            string[] allFileLines = File.ReadAllLines(i_FilePath);
+            string[] allLinesInFile = File.ReadAllLines(i_FilePath);
 
-            foreach (string line in allLines)
+            foreach (string line in allLinesInFile)
             {
                 if (string.IsNullOrWhiteSpace(line))
                 {
@@ -51,7 +51,7 @@ namespace Ex03.GarageLogic
 
                 try
                 {
-                    string[] data = line.Split(k_FileSplitChar);
+                    string[] data = line.Split(Utils.Utils.k_FileSplitChar);
 
                     string vehicleType = data[0].Trim();
                     string licensePlate = data[1].Trim();
@@ -60,16 +60,16 @@ namespace Ex03.GarageLogic
                     string tireManufacturer = data[4].Trim();
                     float currentAirPressure = float.Parse(data[5].Trim());
                     string ownerName = data[6].Trim();
-                    string owner    Phone = data[7].Trim();
+                    string ownerPhoneNumber = data[7].Trim();
 
                     Vehicle newVehicle = VehicleCreator.CreateVehicle(vehicleType, licensePlate, modelName);
 
                     if (newVehicle != null)
                     {
-                        newVehicle.CurrentEnergyAmount = (energyPercent / 100   f) * newVehicle.MaxEnergyAmount;
+                        //newVehicle = (energyPercent / 100f) * newVehicle.MaxEnergyAmount;
                         newVehicle.InstallWheels(tireManufacturer, currentAirPressure);
-                        applySpecificProperties(newVehicle, data);
-                        this.AddNewVehicle(newVehicle, ownerName, ownerPhone);
+                        applySpecificPropertiesByVehicleType(newVehicle, data);
+                        this.AddNewVehicle(newVehicle, ownerName, ownerPhoneNumber);
                     }
                 }
 
@@ -78,6 +78,25 @@ namespace Ex03.GarageLogic
                     continue;
                 }
 
+            }
+        }
+
+        private void applySpecificPropertiesByVehicleType(Vehicle i_Vehicle, string[] i_Data)
+        {
+            if (i_Vehicle is Car car)
+            {
+                car.Color = (e_CarColor)Enum.Parse(typeof(e_CarColor), i_Data[8].Trim());
+                car.NumOfDoors = (e_NumOfDoors)int.Parse(i_Data[9].Trim());
+            }
+            else if (i_Vehicle is Motorcycle motorcycle)
+            {
+                motorcycle.LicenseType = (e_LicenseType)Enum.Parse(typeof(e_LicenseType), i_Data[8].Trim());
+                motorcycle.EngineVolume = int.Parse(i_Data[9].Trim());
+            }
+            else if (i_Vehicle is Truck truck)
+            {
+                truck.IsCarryingHazardousMaterials = bool.Parse(i_Data[8].Trim());
+                truck.CargoVolume = float.Parse(i_Data[9].Trim());
             }
         }
 

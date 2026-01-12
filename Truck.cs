@@ -1,5 +1,5 @@
 ﻿using Utils;
-//using UTILS = Utils.Utils;
+using UTILS = Utils.Utils;
 
 namespace Ex03.GarageLogic
 {
@@ -13,12 +13,12 @@ namespace Ex03.GarageLogic
 
         protected override int NumOfWheels
         {
-            get { return k_TruckNumOfWheels; }
+            get { return UTILS.k_TruckNumOfWheels; }
         }
 
         protected override float MaxAirPressure
         {
-            get { return k_TruckMaxAirPressure; }
+            get { return UTILS.k_TruckMaxAirPressure; }
         }
 
         public bool IsCarryingHazardousMaterials

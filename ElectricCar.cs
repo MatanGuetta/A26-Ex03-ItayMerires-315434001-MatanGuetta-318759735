@@ -1,5 +1,5 @@
 ﻿using Utils;
-//using UTILS = Utils.Utils;
+using UTILS = Utils.Utils;
 
 namespace Ex03.GarageLogic
 {
@@ -8,7 +8,7 @@ namespace Ex03.GarageLogic
         private readonly Battery r_Battery;
 
         public ElectricCar(string i_LicenseNumber, string i_Model)
-            : base(i_LicenseNumber, i_Model, new Battery(k_CarMaxBatteryTime))
+            : base(i_LicenseNumber, i_Model, new Battery(UTILS.k_CarMaxBatteryTime))
         {
             r_Battery = (Battery)r_EnergySource; 
         }

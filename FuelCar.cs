@@ -1,5 +1,5 @@
 ﻿using Utils;
-//using UTILS = Utils.Utils;
+using UTILS = Utils.Utils;
 
 namespace Ex03.GarageLogic
 {
@@ -8,7 +8,7 @@ namespace Ex03.GarageLogic
         private readonly FuelTank r_FuelTank;
 
         public FuelCar(string i_LicenseNumber, string i_Model)
-            : base(i_LicenseNumber, i_Model, new FuelTank(k_CarFuelType, k_CarMaxFuelCapacity))
+            : base(i_LicenseNumber, i_Model, new FuelTank(UTILS.k_CarFuelType, UTILS.k_CarMaxFuelCapacity))
         {
             r_FuelTank = (FuelTank)r_EnergySource;
         }
