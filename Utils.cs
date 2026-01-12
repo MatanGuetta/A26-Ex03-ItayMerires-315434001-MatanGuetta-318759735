@@ -31,6 +31,8 @@ namespace Utils
         public const float k_TruckMaxAirPressure = 26f;
         public const e_FuelType k_TruckFuelType = e_FuelType.Soler;
         public const float k_TruckMaxFuelCapacity = 140f;
+
+        public const char k_FileSplitChar = ',';
     }
 
     public enum e_ServiceStatus

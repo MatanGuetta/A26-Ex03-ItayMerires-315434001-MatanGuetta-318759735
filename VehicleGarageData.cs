@@ -21,14 +21,17 @@ namespace Ex03.GarageLogic
         {
             get { return r_OwnerPhoneNumber; }
         }
+
         public Vehicle Vehicle
         {
             get { return m_Vehicle; }
         }
+
         public string OwnerName
         {
             get { return r_OwnerName; }
         }
+
         public e_ServiceStatus ServiceStatus
         {
             get { return m_ServiceStatus; }

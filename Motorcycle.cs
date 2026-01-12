@@ -1,5 +1,5 @@
 ﻿using Utils;
-using UTILS = Utils.Utils;
+//using UTILS = Utils.Utils;
 
 namespace Ex03.GarageLogic
 {
@@ -13,22 +13,26 @@ namespace Ex03.GarageLogic
 
         protected override int NumOfWheels
         {
-            get { return UTILS.k_MotorcycleNumOfWheels; }
+            get { return k_MotorcycleNumOfWheels; }
         }
+
         protected override float MaxAirPressure
         {
-            get { return UTILS.k_MotorcycleMaxAirPressure; } 
+            get { return k_MotorcycleMaxAirPressure; } 
         }
+
         public e_LicenseType LicenseType
         {
             get { return m_LicenseType; }
             set { m_LicenseType = value; }
         }
+
         public int EngineVolume
         {
             get { return m_EngineVolume; }
             set { m_EngineVolume = value; }
         }
+
         public override string ToString()
         {
             string motorcycleString;
@@ -41,5 +45,6 @@ namespace Ex03.GarageLogic
 
             return motorcycleString;
         }
+
     }
 }

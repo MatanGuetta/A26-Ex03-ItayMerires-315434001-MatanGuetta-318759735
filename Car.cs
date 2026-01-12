@@ -1,5 +1,5 @@
 ﻿using Utils;
-using UTILS = Utils.Utils;
+//using UTILS = Utils.Utils;
 
 namespace Ex03.GarageLogic
 {
@@ -13,22 +13,26 @@ namespace Ex03.GarageLogic
 
         protected override int NumOfWheels
         {
-            get { return UTILS.k_CarNumOfWheels; }
+            get { return k_CarNumOfWheels; }
         }
+
         protected override float MaxAirPressure
         {
-            get { return UTILS.k_CarMaxAirPressure; }
+            get { return k_CarMaxAirPressure; }
         }
+
         public e_CarColor Color
         {
             get { return m_Color; }
             set { m_Color = value; }
         }
+
         public e_NumOfDoors NumOfDoors
         {
             get { return m_NumOfDoors; }
             set { m_NumOfDoors = value; }
         }
+
         public override string ToString()
         {
             string carString;
@@ -41,5 +45,6 @@ namespace Ex03.GarageLogic
 
             return carString;
         }
+
     }
 }

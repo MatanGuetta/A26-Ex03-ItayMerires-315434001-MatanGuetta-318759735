@@ -17,6 +17,7 @@ namespace Ex03.GarageLogic
             UpdateEnergyPercentage(r_EnergySource.CurrentAmount, r_EnergySource.MaxAmount);
             r_Wheels = new List<Wheel>(this.NumOfWheels);
         }
+
         public void InstallWheels(string i_Manufacturer, float i_CurrentAirPressure)
         {
             for (int i = 0; i < this.NumOfWheels; i++)
@@ -26,6 +27,7 @@ namespace Ex03.GarageLogic
                 r_Wheels.Add(newWheel);
             }
         }
+
         public void InflateAllWheelsToMax()
         {
             foreach (Wheel wheel in r_Wheels)
@@ -33,24 +35,31 @@ namespace Ex03.GarageLogic
             wheel.Inflate(wheel.MaxAirPressure - wheel.CurrentAirPressure);
             }
         }
+
         protected void UpdateEnergyPercentage(float i_CurrentEnergyLevel, float i_MaxEnergyLevel)
         {
             m_CurrentEnergyPercentage = (i_CurrentEnergyLevel / i_MaxEnergyLevel) * 100f;
         }
+
         public string Model
         {
             get { return r_Model; }
         }
+
         public string LicenseNumber
         {
             get { return r_LicenseNumber; }
         }
+
         public List<Wheel> Wheels
         {
             get { return r_Wheels; }
         }
+
         protected abstract int NumOfWheels { get; }
+
         protected abstract float MaxAirPressure { get; }
+
         public override string ToString()
         {
             System.Text.StringBuilder vehicleDataString= new System.Text.StringBuilder();
@@ -67,6 +76,6 @@ namespace Ex03.GarageLogic
 
             return vehicleDataString.ToString();
         }
+
     }
-    
 }
