@@ -66,7 +66,14 @@ namespace Ex03.GarageLogic
 
                     if (newVehicle != null)
                     {
-                        //newVehicle = (energyPercent / 100f) * newVehicle.MaxEnergyAmount;
+                        if (newVehicle is IFuelable fuelVehicle)
+                        {
+                            fuelVehicle.CurrentFuelAmount = (energyPercent / 100f) * fuelVehicle.MaxFuelAmount;
+                        }
+                        else if (newVehicle is IChargeable electricVehicle)
+                        {
+                            electricVehicle.BatteryTimeRemaining = (energyPercent / 100f) * electricVehicle.MaxBatteryTime;
+                        }
                         newVehicle.InstallWheels(tireManufacturer, currentAirPressure);
                         applySpecificPropertiesByVehicleType(newVehicle, data);
                         this.AddNewVehicle(newVehicle, ownerName, ownerPhoneNumber);
